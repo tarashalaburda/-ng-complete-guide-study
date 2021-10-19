@@ -22,7 +22,8 @@ import {
   styleUrls: ['./server-element.component.css'],
   encapsulation: ViewEncapsulation.Emulated // None, ShadowDom
 })
-export class ServerElementComponent implements OnInit,
+export class ServerElementComponent implements
+  OnInit,
   OnChanges,
   DoCheck,
   AfterContentInit,
@@ -41,7 +42,7 @@ export class ServerElementComponent implements OnInit,
     console.log('constructor called!');
   }
 
-  ngOnChanges(changes: SimpleChanges): void {
+ ngOnChanges(changes: SimpleChanges): void {
     console.log('ngOnChanges called!');
     console.log(changes);
   }
