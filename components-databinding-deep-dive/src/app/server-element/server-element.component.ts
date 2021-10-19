@@ -1,12 +1,17 @@
 import {
   AfterContentChecked,
-  AfterContentInit, AfterViewChecked, AfterViewInit,
+  AfterContentInit,
+  AfterViewChecked,
+  AfterViewInit,
   Component,
   DoCheck,
+  ElementRef,
   Input,
-  OnChanges, OnDestroy,
+  OnChanges,
+  OnDestroy,
   OnInit,
   SimpleChanges,
+  ViewChild,
   ViewEncapsulation
 } from '@angular/core';
 
@@ -16,9 +21,18 @@ import {
   styleUrls: ['./server-element.component.css'],
   encapsulation: ViewEncapsulation.Emulated // None, ShadowDom
 })
-export class ServerElementComponent implements OnInit, OnChanges, DoCheck, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy {
+export class ServerElementComponent implements OnInit,
+  OnChanges,
+  DoCheck,
+  AfterContentInit,
+  AfterContentChecked,
+  AfterViewInit,
+  AfterViewChecked,
+  OnDestroy {
   @Input('elementFromServer') element: { type: string, name: string, content: string };
   @Input() name: string;
+
+  @ViewChild('heading', { static: true }) header: ElementRef;
 
   constructor() {
     console.log('constructor called!');
@@ -31,6 +45,7 @@ export class ServerElementComponent implements OnInit, OnChanges, DoCheck, After
 
   ngOnInit(): void {
     console.log('ngOnInit called!');
+    console.log('Text Content: ' + this.header.nativeElement.textContent);
   }
 
   ngDoCheck(): void {
@@ -51,6 +66,7 @@ export class ServerElementComponent implements OnInit, OnChanges, DoCheck, After
 
   ngAfterViewInit(): void {
     console.log('ngAfterViewInit called!@@@');
+    console.log('Text Content: ' + this.header.nativeElement.textContent);
   }
 
   ngOnDestroy(): void {
