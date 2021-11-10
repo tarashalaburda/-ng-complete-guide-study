@@ -13,14 +13,8 @@
       <h4 class="text-success">Practicing Services</h4>
       <div class="row">
         <div class="col">
-          <app-active-users
-            [users]="activeUsers"
-            (userSetToInactive)="onSetToInactive($event)"
-          ></app-active-users>
-          <app-inactive-users
-            [users]="inactiveUsers"
-            (userSetToActive)="onSetToActive($event)"
-          ></app-inactive-users>
+          <app-active-users></app-active-users>
+          <app-inactive-users></app-inactive-users>
         </div>
         <!--
           Optimize this app by adding a UsersService which manages he active and inactive users.
